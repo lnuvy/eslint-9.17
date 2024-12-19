@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "es5",
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
+    "baseUrl": "."
+  }
+}
