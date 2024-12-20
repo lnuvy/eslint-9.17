@@ -1,12 +1,6 @@
 import js from "@eslint/js";
 import globals from "globals";
-
-/** Issue: Unable to resolve path to module 'typescript-eslint'.eslintimport/no-unresolved  */
 import tseslint from "typescript-eslint";
-
-/** Issue: it's not working too */
-// import { configs, config } from "typescript-eslint";
-
 import prettier from "eslint-plugin-prettier/recommended";
 import importPlugin from "eslint-plugin-import";
 
@@ -16,7 +10,7 @@ export default tseslint.config(
   prettier,
   importPlugin.flatConfigs.recommended,
   {
-    files: ["**/*.{ts,tsx}"],
+    files: ["**/*.{ts,tsx,mjs}"],
     languageOptions: {
       globals: globals.browser,
     },
@@ -42,17 +36,6 @@ export default tseslint.config(
   },
   {
     files: ["packages/frontend/**/*.{ts,tsx}"],
-    settings: {
-      "import/resolver": {
-        typescript: {
-          project: "./packages/sms/tsconfig.json",
-        },
-        node: {
-          extensions: [".js", ".jsx", ".ts", ".tsx"],
-          paths: ["packages/frontend"],
-        },
-      },
-    },
     rules: {
       "import/order": [
         "error",

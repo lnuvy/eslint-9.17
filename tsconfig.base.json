@@ -6,6 +6,5 @@
     "target": "es5",
     "module": "NodeNext",
     "moduleResolution": "nodenext",
-    "baseUrl": "."
   }
 }
