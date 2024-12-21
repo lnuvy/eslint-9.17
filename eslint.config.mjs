@@ -1,12 +1,9 @@
 import js from "@eslint/js";
 import globals from "globals";
-
-/** Issue: Unable to resolve path to module 'typescript-eslint'.eslintimport/no-unresolved  */
+/**
+ * toggle below importPlugin.flatConfigs.recommended to see the difference
+ */
 import tseslint from "typescript-eslint";
-
-/** Issue: it's not working too */
-// import { configs, config } from "typescript-eslint";
-
 import prettier from "eslint-plugin-prettier/recommended";
 import importPlugin from "eslint-plugin-import";
 
@@ -14,9 +11,13 @@ export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
   prettier,
-  importPlugin.flatConfigs.recommended,
+  // toggle 1
+  // importPlugin.flatConfigs.recommended,
   {
     files: ["**/*.{ts,tsx}"],
+
+    // toggle 2
+    extends: [importPlugin.flatConfigs.recommended],
     languageOptions: {
       globals: globals.browser,
     },
