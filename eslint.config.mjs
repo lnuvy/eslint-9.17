@@ -1,5 +1,8 @@
 import js from "@eslint/js";
 import globals from "globals";
+/**
+ * toggle below importPlugin.flatConfigs.recommended to see the difference
+ */
 import tseslint from "typescript-eslint";
 import prettier from "eslint-plugin-prettier/recommended";
 import importPlugin from "eslint-plugin-import";
@@ -8,9 +11,13 @@ export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
   prettier,
-  importPlugin.flatConfigs.recommended,
+  // toggle 1
+  // importPlugin.flatConfigs.recommended,
   {
-    files: ["**/*.{ts,tsx,mjs}"],
+    files: ["**/*.{ts,tsx}"],
+
+    // toggle 2
+    extends: [importPlugin.flatConfigs.recommended],
     languageOptions: {
       globals: globals.browser,
     },
